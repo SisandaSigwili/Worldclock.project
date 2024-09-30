@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>World Clock</h1>
+
+        <!-- Select element for cities -->
+        <select id="citySelect" onchange="showCityTime()">
+            <option value="" disabled selected>Select a city</option>
+            <option value="Paris">Paris 🇫🇷</option>
+            <option value="Tokyo">Tokyo 🇯🇵</option>
+            <option value="Sydney">Sydney 🇦🇺</option>
+        </select>
+
+        <!-- User's local time -->
+        <div id="userTime" class="time-container"></div>
+
+        <!-- Selected city's time -->
+        <div id="cityTime" class="city-time"></div>
+
+        <!-- Link to return to the homepage -->
+        <a id="homepageLink" href="#" style="display: none;" onclick="goBack()">Return to Homepage</a>
+    </div>
+
+</body>
+
+</html>
