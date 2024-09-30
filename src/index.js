@@ -1,19 +1,27 @@
+function showUserTime() {
+  const userTimeDiv = document.getElementById("userTime");
+  const now = new Date();
+  const userLocalTime = now.toLocaleString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: true,
+  });
+
+  userTimeDiv.innerHTML = `Your local time: ${userLocalTime}`;
+}
+
 function showCityTime() {
   const citySelect = document.getElementById("citySelect");
   const selectedCity = citySelect.value;
   const now = new Date();
 
-  let timeZone = "";
-  switch (selectedCity) {
-    case "Paris":
-      timeZone = "Europe/Paris";
-      break;
-    case "Tokyo":
-      timeZone = "Asia/Tokyo";
-      break;
-    case "Sydney":
-      timeZone = "Australia/Sydney";
-      break;
+  if (!selectedCity) {
+    return;
   }
 
   const cityTime = now.toLocaleString("en-US", {
@@ -25,26 +33,23 @@ function showCityTime() {
     minute: "numeric",
     second: "numeric",
     hour12: true,
-    timeZone,
+    timeZone: selectedCity,
   });
 
-  document.getElementById(
-    "cityTime"
-  ).innerHTML = `The current time in ${selectedCity} is: ${cityTime}`;
+  document.getElementById("cityTime").innerHTML = `The current time in ${
+    citySelect.options[citySelect.selectedIndex].text
+  } is: ${cityTime}`;
 
-  // Show the link to return to homepage
-  document.getElementById("homepageLink").style.display = "block";
+  document.getElementById("homepageLink").style.display = "inline-block";
 }
 
-// Function to return to the city selection (homepage)
 function goBack() {
-  document.getElementById("citySelect").value = ""; // Reset the selection
-  document.getElementById("cityTime").innerHTML = ""; // Clear the city's time display
-  document.getElementById("homepageLink").style.display = "none"; // Hide the homepage link
+  document.getElementById("citySelect").value = "";
+  document.getElementById("cityTime").innerHTML = "";
+  document.getElementById("homepageLink").style.display = "none";
 }
 
-// Show user's current local time on page load
 window.onload = function () {
   showUserTime();
-  setInterval(showUserTime, 1000); // Update the user's time every second
+  setInterval(showUserTime, 1000);
 };

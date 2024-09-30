@@ -14,18 +14,19 @@
 
         <select id="citySelect" onchange="showCityTime()">
             <option value="" disabled selected>Select a city</option>
-            <option value="Paris">Paris 🇫🇷</option>
-            <option value="Tokyo">Tokyo 🇯🇵</option>
-            <option value="Sydney">Sydney 🇦🇺</option>
+            <option value="Europe/Paris">Paris 🇫🇷</option>
+            <option value="Asia/Tokyo">Tokyo 🇯🇵</option>
+            <option value="Australia/Sydney">Sydney 🇦🇺</option>
         </select>
 
 
-        <div id="userTime" class="time-container"></div>
+        <div id="userTime" class="time-box"></div>
 
 
-        <div id="cityTime" class="city-time"></div>
+        <div id="cityTime" class="time-box"></div>
 
-        <a id="homepageLink" href="#" style="display: none;" onclick="goBack()">Return to Homepage</a>
+
+        <a id="homepageLink" href="#" onclick="goBack()">Return to Homepage</a>
     </div>
 
 </body>
